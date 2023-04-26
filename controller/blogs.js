@@ -33,9 +33,9 @@ const getBlogByID = async (req, res) => {
 
 const updateBlogById = async (req, res) => {
   try {
-    const blog = await Blog.findOneAndUpdate({
-      _id: req.params.id,
-      data: req.body,
+    const blog = await Blog.findOneAndUpdate({ _id: req.params.id}, req.body ,{
+      returnDocument: "after",
+      runValidators:true
     });
     if (!blog) {
       return res.json({ message: `no blogs for id:${req.params.id}` });
