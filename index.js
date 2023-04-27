@@ -2,19 +2,20 @@ const connectDb = require("./db/connect");
 const express = require("express");
 const app = express();
 
-const router = require("./routes/blogsRoute");
+const blogRouter = require("./routes/blogsRoute");
+const userRouter = require("./routes/authRoute");
 //get uri from env file
 require('dotenv').config();
 
 //middleware
 app.use(express.json());
-app.use("/api/v1/blog",router );
+app.use("/api/v1/blog",blogRouter );
+app.use("/api/v1/user", userRouter );
 
 // connect to database and start server or else Error
 const start = async () => {
   try {
     await connectDb(process.env.DB_URI);
-   
   } catch (error) {
     console.log("Data Base Error happened !!");
   }
