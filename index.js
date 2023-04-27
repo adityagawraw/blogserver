@@ -16,12 +16,13 @@ app.use("/api/v1/user", userRouter );
 const start = async () => {
   try {
     await connectDb(process.env.DB_URI);
-    app.listen(4000, () => {
-      console.log("server is running on port 4000");
-    });
+    
   } catch (error) {
     console.log("Data Base Error happened !!");
   }
+  app.listen(4000, () => {
+    console.log("server is running on port 4000");
+  });
 };
 
 start();
