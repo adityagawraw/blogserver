@@ -1,5 +1,6 @@
 const Blog = require("../models/blog");
 //get all blogs
+
 const getAllBlogs = async (req, res) => {
   try {
     const blogs = await Blog.find();
@@ -11,6 +12,7 @@ const getAllBlogs = async (req, res) => {
 };
 //create blog
 const createBlog = async (req, res) => {
+  console.log(req.body);
   try {
     const blog = await Blog.create(req.body);
     res.json(blog);
