@@ -17,8 +17,7 @@ app.use("/api/v1/user", userRouter );
 // connect to database and start server or else Error
 const start = async () => {
   try {
-    await connectDb(process.env.DB_URI);
-    
+    await connectDb(process.env.DB_URI); 
   } catch (error) {
     console.log("Data Base Error happened !!");
   }
